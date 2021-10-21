@@ -4,7 +4,6 @@ from django.contrib.auth import get_user_model
 import graphql_jwt
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene import relay
-from graphql_relay import from_global_id
 from graphql_jwt.decorators import login_required
 
 
@@ -44,5 +43,5 @@ class Query(graphene.ObjectType):
     all_users = DjangoFilterConnectionField(UserNode)
 
     @login_required
-    def resolve_user(self, info, **kwargs):
+    def resolve_all_users(self, info, **kwargs):
         return get_user_model().objects.all()
