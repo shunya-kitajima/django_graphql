@@ -32,7 +32,7 @@ class DeptCreateMutation(relay.ClientIDMutation):
     class Input:
         dept_name = graphene.String(required=True)
 
-    department = graphene.Field(Department)
+    department = graphene.Field(DepartmentNode)
 
     @login_required
     def mutate_and_get_payload(root, info, **input):
@@ -47,7 +47,7 @@ class DeptDeleteMutation(relay.ClientIDMutation):
     class Input:
         id = graphene.ID(required=True)
 
-    department = graphene.Field(Department)
+    department = graphene.Field(DepartmentNode)
 
     @login_required
     def mutate_and_get_payload(root, info, **input):
