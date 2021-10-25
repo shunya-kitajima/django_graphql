@@ -127,7 +127,7 @@ class Query(graphene.ObjectType):
     all_departments = DjangoFilterConnectionField(DepartmentNode)
 
     @login_required
-    def resole_employee(self, info, **kwargs):
+    def resolve_employee(self, info, **kwargs):
         id = kwargs.get('id')
         if id is not None:
             return Employee.objects.get(id=from_global_id(id)[1])
